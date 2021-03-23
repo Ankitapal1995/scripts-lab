@@ -1,0 +1,5 @@
+python kmer_onlycount_for_sorting.py  $1 $2 >out_result_$2_mers
+sh sort_kmer.sh out_result_$2_mers >$1_$2_mer_seq
+python merging_dup.py $1_$2_mer_seq >$1_$2_mer_merged
+python kmer_select_alphabatic.py $1_$2_mer_merged >$1_$2_mer_merged.csv
+rm out_result_$2_mers $1_$2_mer_seq $1_$2_mer_merged
